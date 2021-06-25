@@ -1,0 +1,58 @@
+<style>
+ li.logout{
+    display: none;
+} li.profile{
+    display: none;
+}
+li.ModifierAn{
+    display: none;
+}
+.ftco-navbar-light{
+    top:0;
+}
+
+.navbar-brand span{
+            font-family: 'Numans', sans-serif;
+
+font-size:30;
+}
+div.admin{
+display:none;
+}
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/usedCars/public"><span>Car</span> Book</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active" ><a href="/usedCars/public/" class="nav-link">Home</a></li>
+                <li class="nav-item rechercher"><a href="/usedCars/public/index.php/Rechercher" class="nav-link">Recherche</a></li>
+                <li class="nav-item AjouteAnnonce"><a href="/usedCars/public/index.php/AjouteAnnonce" class="nav-link">Déposer une annonce</a></li>
+                <li class="nav-item ModifierAn"><a href="/usedCars/public/index.php/ModifierAn" class="nav-link">Modifier une annonce</a></li>
+                
+                <li class="nav-item login" ><a href="/usedCars/public/index.php/loginU" class="nav-link ">Login</a></li>
+                <li class="nav-item logout" ><a href="/usedCars/public/index.php/logout" class="nav-link ">LogOut</a></li> 
+                <li class="nav-item profile" ><a href="/usedCars/public/index.php/PageUser" class="nav-link ">Mon profile </a></li> 
+                <div class="btn-group admin" >
+                    <button type="button" class="btn dropdown-toggle bb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;     margin-top: 7px;"> Mon profile</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href=" /usedCars/public/index.php/PageAdmin">Menu</a>
+                        <a class="dropdown-item" href="/usedCars/public/index.php/PageUser">Mes Annonces</a>
+
+                        <a class="dropdown-item" href="/usedCars/public/index.php/PageAdmin/GestionAnnonce">Gestion Annonce</a>
+
+                        <a class="dropdown-item" href="/usedCars/public/index.php/PageAdmin/GestionAnnonceurs">Gestion Annonceurs</a>
+                        
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Parrametre</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>

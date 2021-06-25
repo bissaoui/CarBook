@@ -1,0 +1,39 @@
+{% extends "layout.twig" %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1> Espace d'ajoute les modeles du marque : </h1>
+    <form action="AjouterModele" method="post">
+        <fieldset>
+            <label> Choisir la marque :</label>
+            <select tabindex="2" required autofocus name="marque">
+                {% for v in req %}
+                <option value="{{ v[0] }}">
+                    {{ v[1] }}
+                </option>
+                {% endfor %}
+            </select>
+            <span>si vous n'avez pas trouve la marque voulez </span> <a href="AjouterMarque">click ici pour ajouter </a>
+        </fieldset>
+        <fieldset>
+            <label> saisire modèle de voiture :</label>
+            <input type="text" name="modele">
+        </fieldset>
+        <input class="btn btn-primary" type="submit" value="Valider"> {{ v|raw }}
+    </form>
+</div>
+<script>
+    $(document).ready(function() {
+
+        $(".logout").show();
+        $(".login").hide();
+           $('ul li.active').removeClass('active');
+            $('.AjouteAnnonce').addClass('active');
+
+    });
+    
+    
+</script>
+{% endblock %}

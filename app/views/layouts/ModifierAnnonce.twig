@@ -1,0 +1,271 @@
+{% extends "layout.twig" %}
+
+
+{% block content %}
+
+<style>
+body{
+    background:url("/usedCars/app/views/front/images/background1.jpg");
+}
+    input {
+        font-size: 16px;
+    }
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea,
+    #contact button[type="submit"] {
+        font: 400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+    }
+
+    #contact {
+ background-color: 
+rgba(245, 245, 245, 0.52);    height: auto;        padding: 25px;
+color : black;
+border-radius:36px;
+
+    }
+
+    #contact h3 {
+        color: var(--teal);
+        display: block;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    #contact h4 {
+        margin: 5px 0 15px;
+        display: block;
+        font-size: 13px;
+    }
+
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
+
+    label {
+        width: 240px;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact input[type="tel"],
+    #contact input[type="url"],
+    #contact textarea {
+        width: 100%;
+        border: 1px solid #CCC;
+        background: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 7px;
+    }
+
+    #contact input[type="text"]:hover,
+    #contact input[type="email"]:hover,
+    #contact input[type="tel"]:hover,
+    #contact input[type="url"]:hover,
+    #contact textarea:hover {
+        -webkit-transition: border-color 0.3s ease-in-out;
+        -moz-transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out;
+        border: 1px solid #AAA;
+
+    }
+
+    #contact textarea {
+        height: 100px;
+        max-width: 100%;
+        resize: none;
+    }
+
+    #contact button[type="submit"] {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #0CF;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #contact button[type="submit"]:hover {
+        background: #09C;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #contact button[type="submit"]:active {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    #contact input:focus,
+    #contact textarea:focus {
+        outline: 0;
+        border: 1px solid #999;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #888;
+    }
+
+    :-moz-placeholder {
+        color: #888;
+    }
+
+    ::-moz-placeholder {
+        color: #888;
+    }
+
+    :-ms-input-placeholder {
+        color: #888;
+        font-size: 16px;
+    }.cccc{
+background-position-x: 139%;
+background-position-y: 23%;
+}
+
+</style>
+<form>
+
+</form>
+
+<div class="container">
+    <form id="contact" action="/usedCars/public/index.php/ModifierAn" method="post" enctype="multipart/form-data">
+        <h3>Modifier  annonce id : {{ id }} </h3>
+         <fieldset>
+            <input placeholder="Titre Annonce"  type="text" name="id" tabindex="1" value="{{ id }}" style="     font-size: 16px;  width: 465px; height: 34px; display:none;" required autofocus>
+        </fieldset>
+        <fieldset>
+            <label> Titre :</label>
+            <input placeholder="Titre Annonce" type="text" name="titre" tabindex="1" value="{{ r[0][0] }}" style="     font-size: 16px;  width: 465px; height: 34px;" required autofocus>
+        </fieldset>
+        <fieldset>
+            <label> Email :</label>
+            <input placeholder="Email" name="email" type="email" tabindex="6"  value="{{ r[0][5] }}"required style="     font-size: 16px;  width: 235px; height: 34px;">
+        </fieldset>
+        <fieldset>
+            <label> Telephone :</label>
+            <input placeholder="Tele" name="tele" type="text" tabindex="6" value="{{ r[0][4] }}" required style="     font-size: 16px;  width: 235px; height: 34px;">
+        </fieldset>
+       <fieldset>
+            <label> Ville :</label>
+      <select name="ville" style="width: 140px" required >
+   
+         {% for q in reqq %}
+        
+                <option value="{{ q[0] }}">
+                    {{ q[1] }}
+                </option>
+                {% endfor %}
+       </select >   
+            </fieldset>
+        <fieldset>
+            <label> Marque :</label>
+            <select tabindex="2" id="marque" required name="marque" style="width: 140px">
+
+                {% for v in req %}
+                <option value="{{ v[0] }}">
+                    {{ v[1] }}
+                </option>
+                {% endfor %}
+            </select>
+
+        </fieldset>
+
+
+        <fieldset class="model-container">
+
+         
+
+        </fieldset>
+        <fieldset>
+            <label>Année de construction : </label>
+
+            <select name="annee">
+                {% for i in 1997..2020 %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </fieldset>
+        <fieldset>
+            <label> Prix :</label>
+
+            <input placeholder="Prix" name="prix" type="number" tabindex="3" value="{{r[0][11]}}" required style=" border-radius: 7px; font-size: 16px;  width: 235px; height: 34px;"> <span>DH</span>
+        </fieldset>
+        <fieldset>
+            <label> Kiomitrage :</label>
+
+            <input placeholder="Kilomitrage" name="kilomitrage" value="{{r[0][8]}}" type="number" tabindex="3" required style=" border-radius: 7px; font-size: 16px;  width: 235px; height: 34px;"> <span>Km</span>
+        </fieldset>
+        <fieldset>
+            <label> Description </label>
+            <textarea placeholder="Information" name="desc" tabindex="5" required> {{r[0][2]}}</textarea>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        </fieldset>
+    </form>
+
+
+</div>
+<script>
+   $(document).ready(function() {
+        $('ul li.active').removeClass('active');
+        $('.AjouteAnnonce').addClass('active');
+       $("#marque").change(function(){
+            var getMarqueId=$(this).val();
+        if(getMarqueId !='')
+	    {
+		$(".model-container").html("");
+		
+		$.ajax({
+			type:'post',
+			data:{idM:getMarqueId},
+			url: '/usedCars/public/ajax_request.php',
+			success:function(returnData){
+				$(".model-container").html(returnData);
+			}
+		});	
+	}
+	else
+	{
+		$(".model-container").html("");
+	}
+     
+    });
+    $("#marque").load(function(){
+            var getMarqueId=$(this).val();
+        if(getMarqueId !='')
+	    {
+		$(".model-container").html("");
+		
+		$.ajax({
+			type:'post',
+			data:{idM:getMarqueId},
+			url: '/usedCars/public/ajax_request.php',
+			success:function(returnData){
+				$(".model-container").html(returnData);
+			}
+		});	
+	}
+	else
+	{
+		$(".model-container").html("");
+	}
+     
+    });
+    });
+
+</script>
+
+
+
+{% endblock %}

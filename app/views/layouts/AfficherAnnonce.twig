@@ -1,0 +1,316 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<script>
+    if({{cnx}})
+    $(document).ready(function() {
+
+        $(".logout").show();
+        $(".login").hide();
+});
+
+</script>
+<style>
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.texte {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dote {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.activee, .dote:hover {
+  background-color: #353b40;
+}
+
+/* Fading animation */
+.fadee {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fadee {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+</style>
+<!-- Slideshow container -->
+
+                <div class="container">
+
+
+</div>
+
+
+<style>
+body{
+   background-color: #f8f8f5;
+    margin: 0;
+
+}
+.ftco-navbar-light{
+    top:0;
+}
+.cntr{
+    background-color: rgba(245, 245, 245, 0.950);
+    width: 80%;
+    margin:auto ;
+    padding-top: 20px;
+    height: auto;
+
+}
+.annonce{
+    width: 80%;
+    height: 580;
+    margin: auto;
+}
+
+.img{
+    width: 100%;
+    height: 300;
+        margin-top: 4px;
+}
+div.titre { 
+    margin: 10px;
+
+}
+
+div.Desc{
+    margin: 10px;
+width: 93%;    height: 120px
+    ;
+    margin-top: 5%;}
+.color-black{
+    color: black;
+}
+div.Desc h5{
+    margin: 0;
+}
+.td{
+    width: 63%;
+}
+.textAnnonce{
+    background-color: 
+    rgba(53, 210, 142, 0.990);
+    height: auto;
+    color: white;
+    width: 80%;
+    margin:auto ;
+}
+#ftco-navbar{
+    margin-bottom: 0;
+}
+.textAnnonce h2{
+    margin: 0;
+    color: white;
+}
+.textAnnonce h1{
+    margin: 0;
+    color: white;
+}
+div.titre{
+    margin-top: 50;
+    margin-left: 2%;
+
+}
+div.prix{
+        margin-left: 30%;
+    margin-top: 50;
+}
+div.date{
+ margin-top: 50;
+    margin-right: 40px;
+    height: auto;
+}
+.cccc{
+            background: url("/usedCars/app/views/front/images/vv1.gif") 90% 56% no-repeat;
+          background-attachment: fixed;
+
+}
+
+</style>
+<div class="textAnnonce">
+    <h1 style="text-align: center;" >Site d'annonces des voitures au Maroc</h1>
+    <h2 style="text-align: center;">Trouver la bonne {{ v }} affaire </h2>
+</div>
+    <div class="cccc">
+        <div class="cntr">
+            <div class="annonce">
+                <div class="container">
+     
+
+                <table>
+                    <tr>
+                        <td class="td">
+                            <div  class="titre color-black">
+                                <h5 style="font-weight:1000"> {{t[0]}} </h5>
+                            </div>
+                            <div class="img">
+             
+<div class="slideshow-container" style="width:96% ; height:250px;">
+
+  {% for r in img %}
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fadee">
+    <img src="/usedCars/public/photos/{{r}}" style="width:100% ; height:300px;">
+
+  </div>
+  {% endfor %}
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center; width: 90%;
+  margin-top:6%;
+}">
+
+{% for i in  1..count %}
+
+  <span class="dote" onclick="currentSlide({{i}})"></span>
+
+{% endfor %}
+
+ 
+</div>                        
+    </div>
+                            <div class="Desc">
+                                <h5 style="font-weight:1000" >Description :</h5>
+                                <p class="color-black" style="text-align: justify;">
+                                 {{ t[2]|raw}}        
+                                </p>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="contacter color-black">
+                           <span > Nombre de visitor : {{ t[12] }} </span>
+                           </br>
+                                <h5 style="font-weight:1000">Contacter :</h5>
+                                 <label>Username : </label>  {{t[3]}}  </br>
+                                <label>Telephone : </label>  {{t[4]}} </br>
+                                <label>Email :</label>  {{t[5]}}</br>
+                                <label>Ville : </label>  {{t[10]}}  </br>
+                                <h5 style="font-weight:1000">Caracteristique  : </h5>
+                                <label>Marque : </label>  {{t[6]}} <label style="margin-left: 110px;"> Modele : </label>  {{t[7]}}  </br>
+                                <label>Kilomitrage : </label>  {{t[8]}} Km </br>
+                                <label>Date de construction : </label>  {{t[9]}}  </br>
+                                <label>Prix : </label>  {{t[11]}}  Dh.  
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div> 
+</div>       
+</div> 
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dote");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" activee", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " activee";
+}
+</script>
+
+<script>
+$(document).ready(function() {
+var a=$(".textAnnonce h1").height()+$(".textAnnonce h2").height();
+$(".textAnnonce").height(a+10);
+
+});
+</script>
+{% endblock  %}

@@ -1,0 +1,72 @@
+
+{% extends "layout.twig" %}
+
+
+{% block content %}
+    <style>
+
+.main-table tr:first-child td {
+background-color: rgb(41, 185, 123) ;     color:#FFF;
+    }
+    .table tbody tr td{
+        padding:10px 0;
+    }
+    </style>
+    <h1  class="shadow p-3 mb-5 bg-white rounded"style="text-align:center; margin-top:2%;text-shadow: 5px 3px 3px #aaa;     font-size: 50px;
+"> Mon Profile</h1>
+
+
+<div class="container">
+<h2>Les annonces :</h2>
+<div class="table-responsive">
+    <table class=" main-table text-center table table-bordered">
+        <tr>
+            <td>ID</td>
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>marque</td>
+            <td>Statut</td>
+            <td>Action</td>
+        </tr>
+        {% for v in req %}
+            <tr>
+                <td> {{ v[0] }} </td>
+                <td> {{ v[1] }} </td>
+                <td> {{ v[2] }} DH </td>
+                <td> {{ v[3] }} </td>
+                <td>  
+                {% if v[4] == 0 %}
+                    en attende
+                {% else %}
+                    publier
+               {% endif %} 
+                </td>
+                <td> 
+                  <a href="/usedCars/public/index.php/PageUser?do=edit&idItem={{ v[0] }} " class="badge badge-success"> Modifier  </a>
+                  <a href="/usedCars/public/index.php/PageUser?do=delete&idItem={{ v[0] }} "  class="badge badge-danger confirm">  Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+    </table>
+</div>
+ <a href="AjouteAnnonce" style="
+      color: black;
+    border-radius: 20px;
+    padding: 3;
+    background: #35d28e;
+    font-weight: 700;"> + Add </a>
+</div>
+
+   
+
+<script>
+    $(document).ready(function() {
+
+        $(".logout").show();
+        $(".login").hide();
+           $('ul li.active').removeClass('active');
+
+    });
+</script>
+
+{% endblock %}

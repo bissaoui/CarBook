@@ -1,0 +1,168 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+
+<style>
+.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;}
+
+body{
+   background: url("/usedCars/app/views/front/images/background1.jpg") 100% 0% no-repeat;
+background-attachment: fixed;
+
+}
+
+.ftco-navbar-light{
+    top:0;
+}
+.cntr{
+    background-color: rgba(245, 245, 245, 0.63);
+    width: 80%;
+    margin:auto ;
+    padding-top: 20px;
+    height: auto;
+
+}
+.annonce{
+    border-top: rgba(161, 159, 159, 0.609) solid 1px;
+    border-bottom: rgba(161, 159, 159, 0.609) solid 1px;
+    width: 80%;
+    height: 165;
+    margin: auto;
+        display:flex;
+cursor: pointer;
+margin-bottom : 3px;
+}
+.annonce:hover{
+    background-color : rgba(161, 159, 159, 0.24);
+}
+
+.img{
+    width: 231;
+    height: 144;
+        margin-top: 4px;
+}
+div.titre { 
+    margin: 10px;
+
+}
+div.Desc{
+    margin: 10px;
+    width: 430px;
+    height: 120px
+    ;}
+.color-black{
+    color: black;
+}
+div.Desc h5{
+    margin: 0;
+}
+.td{
+    width: 510px;
+}
+.textAnnonce{
+    background-color: 
+rgb(41, 185, 123);    height: auto;
+    color: white;
+    width: 80%;
+    margin:auto ;
+}
+#ftco-navbar{
+    margin-bottom: 0;
+}
+.textAnnonce h2{
+    margin: 0;
+    color: white;
+}
+.textAnnonce h1{
+    margin: 0;
+    color: white;
+}
+div.titre{
+    margin-top: 50;
+    width:400px;
+
+}
+div.prix{
+    margin-left: -3%;
+        margin-top: 50;
+}
+div.date{
+ margin-top: 50;
+    margin-right: 40px;
+    height: auto;
+    width: 120;
+    text-align: center;
+}
+.cccc{
+            background: url("/usedCars/app/views/front/images/background1.gif") 90% 56% no-repeat;
+          background-attachment: fixed;
+
+}
+</style>
+<div class="cccc">
+<div class="textAnnonce">
+    <h1 style="text-align: center;" >Site d'annonces des voitures au Maroc</h1>
+    <h2 style="text-align: center;">Trouver la bonne {{ v }} affaire </h2>
+    </div>
+<div class="cntr">
+<h2 style="margin-left:10px">Les derniere annonces :</h2>
+
+    {% for t in req1 %}
+
+    <div class="annonce color-black" onclick="window.location='/usedCars/public/index.php/AfficherAnnonce?idAnn={{t[4]}}'";>
+        <div class="date ">
+            {{t[5]}}
+        </div>
+           <div class="img">
+                <img class="img" src="/usedCars/public/photos/{{t[6]}}">
+
+        </div>
+        <div class="titre">
+                                        <h5> {{t[0]}} </h5>
+                    {{t[2]}} 
+
+
+        </div>
+        <div class="prix">
+                                        <label >Prix : </label>  {{t[3]}}  Dh  </br>
+                                        <img src="/usedCars/app/views/front/images/view1.png"style="width:22px"> {{t[7]}} vue 
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+
+</div>
+
+
+<div class="container d-flex justify-content-center" style="margin-top:15px;">
+
+  <ul class="pagination">
+  {% if page>0 %}
+    <li class="page-item"><a class="page-link" href="/usedCars/public/index.php/p/{{page-1}}">Previous</a></li>
+  {% endif  %}
+    {% for i in 0..nbPage  %}
+    <li class="page-item"><a class="page-link" href="/usedCars/public/index.php/p/{{i}}">{{ i }}</a></li>
+    {% endfor %}
+      {% if page<nbPage %}
+
+    <li class="page-item"><a class="page-link" href="/usedCars/public/index.php/p/{{page+1}}">Next</a></li>
+      {% endif  %}
+
+  </ul>
+</div>
+<script>
+$(document).ready(function() {
+var a=$(".textAnnonce h1").height()+$(".textAnnonce h2").height();
+$(".textAnnonce").height(a+10);
+var b=0;
+$(".annonce" ).each(function() {
+  b+= $(this).height();
+});
+$(".cntr").height(b+80);
+});
+</script>
+{% endblock  %}

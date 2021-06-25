@@ -1,0 +1,107 @@
+
+{% extends "layout.twig" %}
+
+{% block content %}
+<style>
+
+.col-md-9 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 100%;
+}
+</style>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div id="signupbox" style=" margin-top:50px" >
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">FORMULAIRE D'INSCRIPTION</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px; ">Vous avez un compte!<a id="signinlink" href="/usedCars/public/index.php/loginU" onclick="$('#signupbox').hide(); $('#loginbox').show()">Se connecter</a></div>
+            </div>
+            <div class="panel-body" >
+                <form id="signupform" class="form-horizontal" role="form" action="/usedCars/public/index.php/Inscription"; method="post">
+                    <div id="alert_enregist" style="display:none" class="alert alert-danger">
+                        <p>Erreur:</p>
+                        <span></span>
+                    </div>
+                    <!-- RENSEIGNEMENT -->
+                    <div class="form-group">
+                        <label for="nom" class="col-md-3 control-label" >Username</label>
+                        <div class="col-md-9" style="">
+                            <input type="text" class="form-control" id="nom" name="Unom" placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-9">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Adresse email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register_password" class="col-md-3 control-label">Mot de passe</label>
+                        <div class="col-md-9">
+                            <input type="password" id="register_password" data-minlength="8" class="form-control" name="password" placeholder="mot de passe" required>
+                            <div class="help-block">Minimum de 8 caractere</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse" class="col-md-3 control-label">Adresse</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ville" class="col-md-3 control-label">Ville</label>
+                       <select class="form-control" id="exampleFormControlSelect1"style="
+    width: 97%;
+    margin: auto;
+" name="ville" >
+                      
+                {% for v in req %}
+        
+                <option value="{{ v[0] }}">
+                    {{ v[1] }}
+                </option>
+                {% endfor %}
+       </select >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="phone" class="col-md-3 control-label">Téléphone</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Téléphone" required>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div class="form-group" >
+                        <!-- Boutton -->
+                        <div class="col-md-offset-3 col-md-9" style=" margin-top:20px;">
+                            <button id="btn-signup"  class="btn btn-info col-md-12" ><i class="icon-hand-right"></i> &nbsp S'enregister</button>
+
+                        </div>
+                    </div>
+
+                   
+                </form>
+        </div>
+
+
+
+
+    </div>
+</div>
+</div>
+{% endblock  %}

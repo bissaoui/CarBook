@@ -1,0 +1,120 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+   
+    <link rel="stylesheet" href="https:////cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+.Esp-clients{
+    background: #375050;
+    width: 33%;
+    height: 62px;
+    color: var(--light);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    padding-top: 1.3%;
+    margin-top: 1%;
+    display: inline-block;
+}
+.act{
+        background-color: #35d28e;
+}
+table td{
+    text-align:center;
+}
+table.dataTable{
+    border-collapse: collapse;
+}
+</style>
+<!--
+    <div class="Esp-clients act" >
+        Gestion des Annonce
+    </div>
+    <div class="Esp-clients">
+        Gestion des Annonceurs
+    </div>
+    <div class="Esp-clients">
+        Parrametre d'admin
+    </div>-->
+<h1  class="shadow p-3 mb-5 bg-white rounded"style="text-align:center; margin-top:2%;text-shadow: 5px 3px 3px #aaa;     font-size: 50px;
+"> Gestion des Annonces</h1>
+<div style="width:80% ; margin :auto; margin-top:5%;">
+<table id="example" class="table table-bordered dataTable cell-border compact hover">
+        <thead>
+          <tr style="background-color: rgb(41, 185, 123) ; color:#FFF;">
+           <td>ID</td>
+            <td>Username</td>
+
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>marque</td>
+                        <td>nombre des vues</td>
+
+            <td>Statut</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+   <tbody>
+            {% for v in req %}
+            <tr>
+                <td> {{ v[0] }} </td>
+                <td> {{ v[5] }} </td>
+
+                <td> {{ v[1] }} </td>
+                <td> {{ v[2] }} DH </td>
+                <td> {{ v[3] }} </td>
+                <td> {{ v[6] }} </td>
+
+                <td>  
+                {% if v[4] == 0 %}
+                    en attende
+                {% else %}
+                    publier
+               {% endif %} 
+                </td>
+                <td> 
+                  <a href="/usedCars/public/index.php/PageAdmin/GestionAnnonce?do=edit&idItem={{ v[0] }} " > <img src="/usedCars/app/views/front/images/modify.png"style="width:27px;"></a>
+                  <a href="/usedCars/public/index.php/PageAdmin/GestionAnnonce?do=delete&idItem={{ v[0] }} "  ><img src="/usedCars/app/views/front/images/delete.png" class="confirm" style="width:27px;"></a>
+                 {% if v[4] == 0 %}
+                    <a href="/usedCars/public/index.php/PageAdmin/GestionAnnonce?do=show&idItem={{ v[0] }} " ><img src="/usedCars/app/views/front/images/switchOn.png"  style="width:27px;">  </a>
+                {% else %}
+                    <a href="/usedCars/public/index.php/PageAdmin/GestionAnnonce?do=hide&idItem={{ v[0] }} "><img src="/usedCars/app/views/front/images/switchOff.png"  style="width:27px;"> </a>
+               {% endif %} 
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+ <tr>
+                <td>ID</td>
+            <td>Username</td>
+
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>marque</td>
+                        <td>nombre des vues</td>
+
+            <td>Statut</td>
+            <td>Action</td>
+        </tr>
+        </tfoot>
+    </table>
+
+</div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+  </script>
+<script>
+
+    $(document).ready(function() {
+        $(".logout").show();
+        $(".login").hide();
+           $('ul li.active').removeClass('active');
+    }); 
+    </script>  
+{% endblock %}

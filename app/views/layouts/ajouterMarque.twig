@@ -1,0 +1,30 @@
+{% extends "layout.twig" %}
+
+
+{% block content %}
+<div class="container">
+    <h1>
+        Espace d'ajoute les marques :
+    </h1>
+    <form action="AjouterMarque" method="post">
+
+        <input style="width: 60%" class="input" type="text" name="marque" placeholder="Saisire Votre marque">
+        <input class="btn btn-primary" type="submit" value="Valider"> {{ v|raw }}
+
+    </form>
+
+    <button type="button" href="">Ajouter Modele </button>
+</div>
+<script>
+    $(document).ready(function() {
+
+        $(".logout").show();
+        $(".login").hide();
+           $('ul li.active').removeClass('active');
+            $('.AjouteAnnonce').addClass('active');
+
+    });
+
+    
+</script>
+{% endblock %}
