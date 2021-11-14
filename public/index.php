@@ -60,4 +60,7 @@ $app->post('/ModifierAn',App\Controllers\PagesController::class . ':postModifier
 
 $app->get('/logout',App\Controllers\PagesController::class . ':getLogout')->setName('logout');
 
+$app->get('/PageAdmin/Statistique',App\Controllers\PagesController::class . ':getStatistique')->setName('Statistique');
+
+
 $app->run();

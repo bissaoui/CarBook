@@ -1,0 +1,148 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<style>
+.stat{ background-color : #EEE; border : 1px solid #ccc; color: #FFF; padding : 20px; font-size:15px; border-radius:12px;}
+
+.stat span {
+    display : block;
+    font-size:50px;
+}
+.latest{
+    margin-top :40px;
+    color : black;
+}
+.panel-default{
+        border : #cccccc54 solid 1px;
+
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    text-align: left;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #3bb37e;
+    border-color: #fff;
+        text-align: left;
+        color:#fff;
+            font-size: 20px;
+
+
+}
+.panel-body{
+        text-align: left;
+    background-color: #00000063;
+    color: #fff;
+}
+.panel-annonceurs{
+            text-align: left;
+                font-size: 15px;
+
+}
+.panel-body .nom{
+width:47%;
+margin-left:2%;
+display:inline-block;
+
+}
+.panel-body .vue{
+    width: 49%;
+    display:inline-block;
+
+
+}
+.panel-annonceurs .nom{
+width:47%;
+margin-left:2%;
+display:inline-block;
+
+}
+.panel-annonceurs .vue{
+  width: 49%;
+    display:inline-block;
+}
+.users{
+    background-color:#f6b93b;
+}
+.annonce{
+    background-color:#3c6382;
+}
+.attende{
+    background-color:#e55039;
+}
+.vues{
+    background-color: #51af66;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container text-center">
+   <h1  class="shadow p-3 mb-5 bg-white rounded"style="text-align:center; margin-top:2%;text-shadow: 5px 3px 3px #aaa;     font-size: 50px;
+"> Statistique</h1>
+
+    <div class="row">
+        <div class = "col-md-3">
+            <div class = "stat users"> Totale des Utilisateurs <span>{{users[0]}}</span> </div>
+        </div>
+         <div class = "col-md-3">
+            <div class = "stat annonce"> Totale des Annonces <span>{{nbAnnonce[0]}}</span> </div>
+        </div>
+         <div class = "col-md-3">
+            <div class = "stat attende"> Annonces en attende <span>{{nbAttend[0]}}</span> </div>
+        </div>
+         <div class = "col-md-3">
+            <div class = "stat vues"> Totale des vues <span>{{visitors[0]}}</span> </div>
+        </div>
+    </div>
+    <div class="container latest">
+        <div class="row">    
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class ="fa fa-users" ></i> Top 5 Annonceurs
+                    </div>
+                     <div class="panel-body"> 
+                     <div class="nom"> Nom </div>  <div class="vue"> Nombre des annonces</div>
+                    </div>
+                   {% for t in topuser %} 
+                       <div class="panel-annonceurs"> 
+                     <div class="nom"> {{t[0]}} </div>  <div class="vue"> {{t[1]}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+             <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-car"></i> Top 5 Annonces
+                    </div>
+                     <div class="panel-body"> 
+                     <div class="nom"> Titre Annonce </div>  <div class="vue"> Nombre des vues</div>
+                    </div>
+                   {% for t in topAn %} 
+                       <div class="panel-annonceurs"> 
+                     <div class="nom"> {{t[0]}} </div>  <div class="vue"> {{t[1]}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+  </script>
+<script>
+
+    $(document).ready(function() {
+        $(".logout").show();
+        $(".login").hide();
+           $('ul li.active').removeClass('active');
+    }); 
+    </script>  
+{% endblock %}

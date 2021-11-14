@@ -5,8 +5,8 @@
     if({{cnx}})
     $(document).ready(function() {
 
-        $(".logout").show();
-        $(".login").hide();
+        $(".logout").hide();
+        $(".login").show();
 });
 
 </script>
@@ -114,10 +114,13 @@
 
 <style>
 body{
-   background-color: #f8f8f5;
-    margin: 0;
+
+   background: url("/usedCars/app/views/front/images/background1.jpg") 100% 0% no-repeat;
+background-attachment: fixed;
 
 }
+
+
 .ftco-navbar-light{
     top:0;
 }
@@ -127,6 +130,7 @@ body{
     margin:auto ;
     padding-top: 20px;
     height: auto;
+    padding-bottom:60px;
 
 }
 .annonce{
@@ -192,11 +196,7 @@ div.date{
     margin-right: 40px;
     height: auto;
 }
-.cccc{
-            background: url("/usedCars/app/views/front/images/vv1.gif") 90% 56% no-repeat;
-          background-attachment: fixed;
 
-}
 
 </style>
 <div class="textAnnonce">
@@ -265,7 +265,7 @@ div.date{
                                 <label>Email :</label>  {{t[5]}}</br>
                                 <label>Ville : </label>  {{t[10]}}  </br>
                                 <h5 style="font-weight:1000">Caracteristique  : </h5>
-                                <label>Marque : </label>  {{t[6]}} <label style="margin-left: 110px;"> Modele : </label>  {{t[7]}}  </br>
+                                <label>Marque : </label>  {{t[6]}} <label style="margin-left: 50px;"> Modele : </label>  {{t[7]}}  </br>
                                 <label>Kilomitrage : </label>  {{t[8]}} Km </br>
                                 <label>Date de construction : </label>  {{t[9]}}  </br>
                                 <label>Prix : </label>  {{t[11]}}  Dh.  

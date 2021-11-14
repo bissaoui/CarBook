@@ -12,7 +12,8 @@
 
 <style>
 body{
-    background-color: #f8f8f5;
+ background: url("/usedCars/app/views/front/images/background1.jpg") 100% 0% no-repeat;
+background-attachment: fixed;
     margin: 0;
 
 
@@ -99,11 +100,7 @@ div.date{
     width: 120;
     text-align: center;
 }
-.cccc{
-            background: url("/usedCars/app/views/front/images/vv1.gif") 90% 56% no-repeat;
-          background-attachment: fixed;
 
-}
 
 .form{
     margin-left: 10px;
@@ -154,14 +151,14 @@ div.date{
     </div>
 <div class="cntr">
 <h2 style="margin-left:10px">Les derniere annonces :</h2>
-    {% for t in req1 %}
+  {% for t in req1 %}
 
     <div class="annonce color-black" onclick="window.location='/usedCars/public/index.php/AfficherAnnonce?idAnn={{t[4]}}'";>
         <div class="date ">
             {{t[5]}}
         </div>
            <div class="img">
-                                <img class="img" src="/usedCars/public/photos/{{t[6]}}">
+                <img class="img" src="/usedCars/public/photos/{{t[6]}}">
 
         </div>
         <div class="titre">
@@ -171,7 +168,8 @@ div.date{
 
         </div>
         <div class="prix">
-                                        <label >Prix : </label>  {{t[3]}}  Dh.  
+                                        <label >Prix : </label>  {{t[3]}}  Dh  </br>
+                                        <img src="/usedCars/app/views/front/images/view1.png"style="width:22px"> {{t[7]}} vue 
 
         </div>
     </div>

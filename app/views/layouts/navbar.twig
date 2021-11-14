@@ -19,7 +19,10 @@ font-size:30;
 div.admin{
 display:none;
 }
-
+.ftco-section {
+    padding: 34px 0;;
+    position: initial;
+}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -37,9 +40,9 @@ display:none;
                 
                 <li class="nav-item login" ><a href="/usedCars/public/index.php/loginU" class="nav-link ">Login</a></li>
                 <li class="nav-item logout" ><a href="/usedCars/public/index.php/logout" class="nav-link ">LogOut</a></li> 
-                <li class="nav-item profile" ><a href="/usedCars/public/index.php/PageUser" class="nav-link ">Mon profile </a></li> 
+                <li class="nav-item profile" ><a href="/usedCars/public/index.php/PageUser" class="nav-link ">{{user}} </a></li> 
                 <div class="btn-group admin" >
-                    <button type="button" class="btn dropdown-toggle bb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;     margin-top: 7px;"> Mon profile</button>
+                    <button type="button" class="btn dropdown-toggle bb" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;     margin-top: 7px;">Admin</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href=" /usedCars/public/index.php/PageAdmin">Menu</a>
                         <a class="dropdown-item" href="/usedCars/public/index.php/PageUser">Mes Annonces</a>
@@ -48,8 +51,9 @@ display:none;
 
                         <a class="dropdown-item" href="/usedCars/public/index.php/PageAdmin/GestionAnnonceurs">Gestion Annonceurs</a>
                         
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Parrametre</a>
+                      <!--  <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Parrametre</a> -->
+
                     </div>
                 </div>
             </ul>
